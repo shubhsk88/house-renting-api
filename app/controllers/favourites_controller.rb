@@ -20,7 +20,7 @@ class FavouritesController < ApplicationController
 
 
     def favourite_params
-        params.permit(:house_id)
+        params.permit(:house_id,:user_id)
     end
 
 
