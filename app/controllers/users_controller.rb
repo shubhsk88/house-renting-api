@@ -6,9 +6,9 @@ class UsersController < ApplicationController
       @user = User.create(user_params)
       if @user.valid?
         token = encode_token({user_id: @user.id})
-        render json: {user: @user, token: token}
+        render json: {user: @user, token: token,message:"User Created"}
       else
-        render json: {error: "Invalid username or password"}
+        render json: {status:400, message: "Username already exists"}
       end
     end
   
@@ -18,22 +18,22 @@ class UsersController < ApplicationController
   
       if @user && @user.authenticate(params[:password])
         token = encode_token({user_id: @user.id})
-        render json: {user: @user, token: token}
+        render json: {user: @user, token: token,message: "Authentication Successful"}
       else
-        render json: {error: "Invalid username or password"}
+        render json: {message: "Invalid username or password",status:403}
       end
     end
   
   
     def auto_login
-      render json: @user.to_json(:include => {:houses,:favourites})
+      render json: @user.to_json(:include => [:houses,:favourites])
 
     end
   
     private
   
     def user_params
-      params.permit(:username, :password, :age)
+      params.permit(:username, :password, :name)
     end
   
   end
