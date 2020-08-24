@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 5.times do
-User.create({name:Faker::Name.name ,username:Faker::Internet.username ,password_digest:Faker::Nation.nationality})
+  
+User.create({name:Faker::Name.name ,username:Faker::Internet.username ,password:"12345"})
 end
 
 House.create!([{

@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
 
     validates_presence_of :name, :username, :password_digest
+    validates_uniqueness_of :username
 end
