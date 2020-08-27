@@ -11,6 +11,9 @@
 User.create({name:Faker::Name.name ,username:Faker::Internet.username ,password:"12345"})
 end
 
+
+User.create(name:"test",username:"test",password:"password")
+
 House.create!([{
     title: 'Clean and fully furnished apartment. 5 min away from CN Tower',
     img_url:
