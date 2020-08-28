@@ -1,7 +1,6 @@
 require_relative('../../services/authentication_helper.rb')
 
 class ApplicationController < ActionController::API
-  
   def logged_in_user
     return unless decoded_token
 

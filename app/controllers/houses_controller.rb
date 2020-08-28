@@ -1,7 +1,7 @@
 class HousesController < ApplicationController
   def index
     @houses = House.all.includes(:favourites)
-    render json: {  houses: @houses, message: 'Fetch successful' }
+    render json: { houses: @houses, message: 'Fetch successful' }
   end
 
   def show

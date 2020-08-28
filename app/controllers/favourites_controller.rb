@@ -5,16 +5,16 @@ class FavouritesController < ApplicationController
     if favourite.save
       render json: { message: 'House succesfully add to favourites' }
     else
-      render json: {  message: 'Error while updating the favourite', data: favourite.errors, status: :not_found }
+      render json: { message: 'Error while updating the favourite', data: favourite.errors, status: :not_found }
     end
   end
 
   def destroy
     favourite = Favourite.find(params[:id])
     if favourite.destroy
-      render json: {  message: 'House removed from list' }
+      render json: { message: 'House removed from list' }
     else
-      render json: {  message: 'Error while updating the favourite', data: favourite.errors, status: :not_found },status: :not_found
+      render json: { message: 'Error while updating the favourite', data: favourite.errors, status: :not_found }, status: :not_found
     end
   end
 
