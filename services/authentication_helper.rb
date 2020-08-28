@@ -8,7 +8,7 @@ end
 
 def decoded_token
   return unless auth_header
-  byebug
+ 
   token = auth_header.split(' ')[1]
 
   begin
