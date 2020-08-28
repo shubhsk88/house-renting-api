@@ -51,6 +51,37 @@ Start server with:
 
 Open `http://localhost:3000/` in your postman to call the apis.
 
+Endpoints
+
+1. User Signup
+```
+POST https://localhost:3000/users  user:={"username":"test","name":"test","password":"password"}
+```
+2. User Login
+```
+POST https://localhost:3000/login  user:={"username":"test","password":"password"}
+```
+
+3. User Favourite data
+
+```
+POST https://localhost:3000/favourites  token="########"
+
+
+```
+
+
+4.Houses Data
+```
+GET https://localhost:3000/houses  
+```
+
+5.Houses Data By Id
+```
+GET https://localhost:3000/houses/:id  
+```
+
+
 ## Authors
 
 👤 **Shubham Singh**

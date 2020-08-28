@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       token = encode_token({ user_id: @user.id })
       render json: { user: @user, token: token, message: 'User Created' }
     else
-      render json: { status: 400, message: 'Problem doing signup try again' }, state: :bad_request
+      render json: {  message: 'Problem doing signup try again' }, state: :bad_request
     end
   end
 
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       token = encode_token({ user_id: @user.id })
       render json: { user: @user, token: token, message: 'Authentication Successful' }
     else
-      render json: { message: 'Invalid username or password', status: 403 }, status: :unauthorized
+      render json: { message: 'Invalid username or password' }, status: :unauthorized
     end
   end
 
