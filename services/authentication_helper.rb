@@ -1,5 +1,5 @@
 def encode_token(payload)
-  JWT.encode(payload, 'sgubp')
+  JWT.encode(payload, ENV['jwt_key'])
       end
 
 def auth_header
@@ -8,11 +8,12 @@ end
 
 def decoded_token
   return unless auth_header
-
+  byebug
   token = auth_header.split(' ')[1]
 
   begin
-    JWT.decode(token, 'sgubp', true, algorithm: 'HS256')
+    
+    JWT.decode(token, ENV['jwt_key'], true, algorithm: 'HS256')
   rescue JWT::DecodeError
     nil
   end
